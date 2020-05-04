@@ -1,15 +1,16 @@
 {
   "name": "package",
   "version": "1.0.0",
-  "engines": {
-    "node": "12.16.1",
-    "npm": "6.13.4"
-  },
   "description": "dav.me app manager",
   "main": "server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node server.js"
+    "start": "node server.js",
+    "heroku-postbuild": "npm run build"
+  },
+  "engines": {
+    "node": "12.16.1",
+    "npm": "6.13.4"
   },
   "author": "davidmened@gmail.com",
   "license": "ISC",
