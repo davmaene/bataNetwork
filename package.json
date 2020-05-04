@@ -1,13 +1,17 @@
 {
   "name": "package",
   "version": "1.0.0",
+  "engines": {
+    "node": "12.16.1",
+    "npm": "6.13.4"
+  },
   "description": "dav.me app manager",
   "main": "server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node server.js"
   },
-  "author": "",
+  "author": "davidmened@gmail.com",
   "license": "ISC",
   "dependencies": {
     "connect-redis": "^4.0.4",

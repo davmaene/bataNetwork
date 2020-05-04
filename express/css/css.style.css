@@ -75,8 +75,14 @@
 }
 .txt-drk{
     color: #3498db !important;
+    text-decoration: none;
     /*background-color: red;*/
     /*text-overline-color: red;*/
+}
+.txt-drk:hover{
+    text-decoration: none;
+    text-underline: none;
+    /*opacity: 40%;*/
 }
 .alr-img{
     text-transform: uppercase !important;

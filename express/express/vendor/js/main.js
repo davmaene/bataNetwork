@@ -35,6 +35,9 @@ class Session {
                 ssio.appendChild(lk);
             // ssio.innerHTML = '<a href="" class="nav-link txt-drk alr-img" id="init"></a>';
             // document.getElementById('init').innerHTML = '';
+            const div = document.createElement('div');
+            div.className = 'col-lg-6'
+            // lk.addEventListener()
         }
     }, false);
 
