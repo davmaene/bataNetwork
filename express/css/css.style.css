@@ -58,7 +58,18 @@
     text-align: center;
     overflow: hidden;
 }
-
+.dropdown-content{
+    /*padding-top:;*/
+    display: none;
+    cursor: default;
+}
+/*.dropdown-cab:hove*/
+.dropdown-cab:hover .dropdown-content{
+    display: block;
+}
+.dropdown-content::before{
+    content: 'Vous pouvez échanger votre véhicule avec un autre grâce à notre réseaux BATA. découvrez la diversité des véhicules à échanger ici'
+}
 .brf-r{
     border-radius: 20px;
 }
