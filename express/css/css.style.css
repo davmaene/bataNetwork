@@ -1,0 +1,155 @@
+*{
+    /*font-size: 10px;*/
+    /*    font-family: "Poor Richard";*/
+    padding: 0;
+    margin: 0;
+}
+.fx{
+    /*position: fixed;*/
+    /*top: -85px;*/
+}
+.im{
+    /*background-image: url("/dynamicsImgs/WhatsApp Image 2020-02-28 at 19.57.50.jpeg");*/
+    background-color: #CCCCCC;
+}
+.active-l{
+    /*background-color: #cccc;*/
+    /*color: black;*/
+    /* text-shadow: rgb(233, 232, 255, 0.5); */
+}
+.logo-h-t{
+    width: 120px;
+}
+.active-l a{
+    /*color: black;*/
+    border-bottom: 3px solid #3498db !important;
+}
+.innerl{
+    margin-left: -45px;
+    outline: none;
+}
+.algn-center-s{
+    /* margin: 4px 4px; */
+    border: 1px solid #000;
+    justify-content: center;
+}
+.preview-1{
+    /* background: #000; */
+    max-height: 200px;
+    overflow: hidden;
+    padding: 2px 2px;
+}
+.logo-h-w{
+    width: 100px;
+}
+.ovf-scr{
+    padding-top: 5px;
+    height: 400px !important;
+    overflow-y: scroll;
+}
+.d-non{
+    display: none;
+}
+.preview-2{
+    /* background: #000; */
+    max-width: 200px;
+    padding: 2px;
+    border: 1px solid #cccccc;
+    text-align: center;
+    overflow: hidden;
+}
+
+.brf-r{
+    border-radius: 20px;
+}
+.txt-drk{
+    color: #3498db !important;
+    /*background-color: red;*/
+    /*text-overline-color: red;*/
+}
+.alr-img{
+    text-transform: uppercase !important;
+    padding: 10px 10px !important;
+    border-radius: 10px !important;
+    background: #cbd3da;
+    font-weight: bold;
+    margin-right: 16px;
+    /*border: 1px solid #3498db;*/
+    /*color: ;*/
+}
+@media (max-width: 768px) {
+    .alr-img{
+      margin-right: 0;
+
+    }
+}
+.algn-center {
+    -ms-flex-align:center;
+    align-items:center;
+    background-color:transparent;
+    display:-ms-flexbox;
+    display:flex;
+    -ms-flex-direction:column;
+    flex-direction:column;
+    /* height:100vh; */
+    -ms-flex-pack:center;
+    justify-content:center
+}
+.hoverOn:hover{
+    cursor: pointer;
+    color: #3498db !important;
+}
+.product-image{
+    width: 100%;
+}
+.product-image-thumb{
+    width: 100%;
+}
+#sec-profile{
+    margin-top: 0;
+}
+.hv{
+    height: 500px !important;
+}
+.mrt{
+    margin-top: 0;
+}
+.for-sm form small{
+    top: -16px !important;
+    padding-top: -200px !important;
+    /*background: red;*/
+}
+.map{
+    width: 80%;
+}
+.map-inner{
+    width: 100%;
+}
+.map-inner iframe{
+    width: 100%;
+    height: 400px;
+}
+.sml{
+    width:84px;
+    margin-bottom: 4px;
+}
+.sml:hover{
+    cursor: pointer;
+    background: #5d6974;
+    transition: .4s;
+}
+@media (max-width: 768px) {
+    #sec-profile{
+        margin-top: 6px !important;
+    }
+    .mrt{
+        margin-top: 8px;
+    }
+    .alr-img{
+        width: 45px !important;
+    }
+    .sml{
+        width: 86px !important;
+        /*background: #000;*/
+    }
+}

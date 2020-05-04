@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="les milles services app">
+    <meta name="author" content="david maene">
+
+    <title>les mille Services</title>
+    <link rel="shortcut icon" href="/staticsImgs/logoBand.jpg" type="image/x-icon">
+    <!-- Bootstrap core CSS -->
+    <link href="/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+<!--    <link rel="stylesheet" href="/express/dist/css/adminlte.min.css">-->
+    <!-- font-awesome -->
+    <link rel="stylesheet" href="/css/font-awesome/css/font-awesome.css">
+    <!-- Custom styles for this template -->
+    <link href="/css/shop-homepage.css" rel="stylesheet">
+    <!--  -->
+    <link href="/css/css.style.css" rel="stylesheet">
+
+</head>
+
+<body>
+
+<!-- Navigation -->
+<nav class="navbar navbar-expand-lg bg-white shadow fixed-top navbar-dark">
+    <div class="container">
+        <a class="navbar-brand text-primary" href="/">
+            <img src="/staticsImgs/logoHeader.jpg" alt="logoHeader" srcset="" class="logo-h-w">
+        </a>
+        <button class="navbar-toggler bg-primary" type="button" data-toggle="collapse" data-target="#itemsDown"
+                aria-controls="itemsDown" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="itemsDown">
+            <!-- section search -->
+            <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 mrt">
+                <div class="row">
+                    <input type="text" name="wrd-src" id="wrd-src" class="form-control brf-r wdth">
+                    <button type="button" id="btn-src" class="btn btn-default innerl">
+                        <span class="fa fa-search"></span>
+                    </button>
+                </div>
+            </div>
+            <!--      -->
+            <ul class="navbar-nav ml-auto txt-drk">
+                <li class="nav-item" id="sec-profile">
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link txt-drk" href="/">Home
+                        <span class="sr-only">(current)</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link txt-drk" href="/cars/for-lease">Location</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link txt-drk" href="/cars/for-sale">Vente</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link txt-drk" href="/about/contact">Contact</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<!-- Page Content -->
+<div class="container">
+    <div class="row">
+        <div class="col-lg-3 my-4">
+            <h3>
+                <!-- <img src="/staticsImgs/logoHeader.jpg" alt="logoHeader" srcset="" class="logo-h-w">
+                <img src="/staticsImgs/logoBand.jpg" alt="logoHeader" srcset="" class="logo-h-w"> -->
+                Les 1000 services
+            </h3>
+            <h6>En voiture on assure</h6>
+            <div class="list-group">
+                <a href="/cars/all-categories" class="list-group-item nav-link">Tout</a>
+                <a href="/cars/for-lease" class="list-group-item nav-link">Location</a>
+                <a href="/cars/for-sale" class="list-group-item nav-link">Vente</a>
+            </div>
+
+        </div>
+        <!-- /.col-lg-3 -->
+        <div class="col-lg-9 pt-5" id="lvl-1-container">
+            <div class="col-lg-12">
+                <div class="card p-2 mb-3">
+                    <span id="pub" class="w-100">
+                        <b>Si vous avez un véhicule et que vous voulez le faire louer ou même le vendre contactez nous</b> <br>
+                        <i class="badge badge-primary"><span class="fa fa-phone"></span> +243 992 913 458 </i>
+                        | <i class="badge badge-primary"><span class="fa fa-phone"></span> +243 815 864 596</b></i>
+                        &nbsp;
+                    </span>
+                </div>
+            </div>
+            <div class="container-fluid">
+                <div class="card">
+                    <div class="card-header">
+                        <span class="card-title">Détail</span>
+                        <span class="fa fa-bookmark-o float-right"></span>
+                    </div>
+                    <div class="card-body" >
+                        <div class="row" id="card-body-row">
+                            <div class="col-lg-7 algn-center" id="content-img">
+                                <span class="spinner-grow spinner-grow-sm"></span>
+<!--                                content of principal image                         -->
+                            </div>
+                            <div class="col-lg-5" id="content-dtl">
+                                <div class="card border-0">
+                                    <div class="card-header border-0 bg-white" id="txt-marque">
+<!--                                        <h3 class="float-left">Marque Model</h3>-->
+<!--                                        <span class="spinner-grow spinner-grow-sm"></span>-->
+                                    </div>
+                                    <div class="card-body border">
+                                        <span class="w-100">Prix actuel :
+                                            <b class="float-right" id="price-content"><span class="spinner-grow spinner-grow-sm"></span></b>
+                                        </span><br>
+                                        <span class="w-100">
+                                            Couleur   &nbsp;&nbsp;&nbsp;&nbsp;:
+                                            <b class="float-right" id="color-content"><span class="spinner-grow spinner-grow-sm"></span></b>
+                                        </span><br>
+                                        <span class="w-100">Carburant :
+                                            <b class="float-right" id="ess-content"><span class="spinner-grow spinner-grow-sm"></span></b>
+                                        </span><br>
+                                        <span></span>
+                                    </div>
+                                    <div class="card-body">
+                                        <div class="d-inline-block" id="content-imgs-thumb">
+<!--                                            &lt;!&ndash;                                            <div class="">&ndash;&gt;-->
+<!--                                            <img src="/dynamicsImgs/BG811081_852afb.jpg" alt="" class="sml border p-1 product-image-thumb">-->
+<!--                                            &lt;!&ndash;                                            </div>&ndash;&gt;-->
+<!--                                            &lt;!&ndash;                                            <div class="">&ndash;&gt;-->
+<!--                                            <img src="/dynamicsImgs/BG811081_852afb.jpg" alt="" class="sml border p-1 product-image-thumb">-->
+<!--                                            &lt;!&ndash;                                            </div>&ndash;&gt;-->
+<!--                                            &lt;!&ndash;                                            <div class="">&ndash;&gt;-->
+<!--                                            <img src="/dynamicsImgs/BG811081_852afb.jpg" alt="" class="sml border p-1 product-image-thumb">-->
+<!--                                            &lt;!&ndash;                                            </div>&ndash;&gt;-->
+<!--                                            &lt;!&ndash;                                            <div class="">&ndash;&gt;-->
+<!--                                            <img src="/dynamicsImgs/BG811081_852afb.jpg" alt="" class="sml border p-1 product-image-thumb">-->
+<!--                                            &lt;!&ndash;                                            </div>&ndash;&gt;-->
+<!--                                            <img src="/dynamicsImgs/BG811081_852afb.jpg" alt="" class="sml border p-1 product-image-thumb">-->
+                                        </div>
+                                        <small class="text-sm">Cliquez sur les vignettes pour agrandir</small>
+                                        <button class="btn btn-primary d-block w-100" href="#" id="onGetIt">
+                                            Achetez ce Véhicule
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-12 mt-3 mb-5">
+                    <div class="row mt-4">
+                        <nav class="w-100">
+                            <div class="nav nav-tabs" id="product-tab" role="tablist">
+                                <a class="nav-item nav-link active" id="product-desc-tab" data-toggle="tab" href="#product-desc" role="tab" aria-controls="product-desc" aria-selected="true">Déscription</a>
+                                <a class="nav-item nav-link" id="product-comments-tab" data-toggle="tab" href="#product-comments" role="tab" aria-controls="product-comments" aria-selected="false">Commentaires</a>
+                                <!--                                <a class="nav-item nav-link" id="product-rating-tab" data-toggle="tab" href="#product-rating" role="tab" aria-controls="product-rating" aria-selected="false">Rating</a>-->
+                            </div>
+                        </nav>
+                        <div class="tab-content p-3" id="nav-tabContent">
+                            <div class="tab-pane fade show active" id="product-desc" role="tabpanel" aria-labelledby="product-desc-tab">
+                                <div class="col-lg-12 mb-3">
+                                    <san class="badge badge-danger text-uppercase">note</san>
+                                    <span>&nbsp; Ces informations sont fournies par les équipes de <b class="text-uppercase">les mille services</b>
+                                        Veillez nous contactez si ces informations ne vous satifont pas</span>
+                                </div>
+                                <div class="card">
+                                    <div class="card-header">
+                                        <!--                                        <div class="card-title">-->
+                                        Caractéristiques de véhicule
+                                        <!--                                        </div>-->
+                                    </div>
+                                    <div class="card-body">
+                                        <table class="w-100">
+                                            <tr class="border-bottom">
+                                                <th>Modèle</th>
+                                                <td class="text-right pr-3" id="con-model"><span class="spinner-grow spinner-grow-sm"></span></td>
+                                            </tr>
+                                            <tr class="border-bottom">
+                                                <th>Marque</th>
+                                                <td class="text-right pr-3" id="con-marque"><span class="spinner-grow spinner-grow-sm"></span></td>
+                                            </tr>
+                                            <tr class="border-bottom">
+                                                <th>Volant</th>
+                                                <td class="text-right pr-3" id="con-whl"><span class="spinner-grow spinner-grow-sm"></span></td>
+                                            </tr>
+                                            <tr class="border-bottom">
+                                                <th>Transmission</th>
+                                                <td class="text-right pr-3" id="con-trs"><span class="spinner-grow spinner-grow-sm"></span></td>
+                                            </tr>
+                                            <tr class="border-bottom">
+                                                <th>Portes</th>
+                                                <td class="text-right pr-3" id="con-doors"><span class="spinner-grow spinner-grow-sm"></span></td>
+                                            </tr>
+                                            <tr class="border-bottom">
+                                                <th>Sièges</th>
+                                                <td class="text-right pr-3" id="con-sit"><span class="spinner-grow spinner-grow-sm"></span></td>
+                                            </tr>
+                                            <tr class="border-bottom">
+                                                <th>Couleur ext.</th>
+                                                <td class="text-right pr-3" id="con-color"><span class="spinner-grow spinner-grow-sm"></span></td>
+                                            </tr>
+                                        </table>
+                                    </div>
+                                    <div class="card-footer">
+                                        <span><b>J'aime cette voiture</b> <span class="fa fa-thumbs-up hoverOn pull-right" id="liked"></span></span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="tab-pane fade" id="product-comments" role="tabpanel" aria-labelledby="product-comments-tab">
+                                comment here
+                            </div>
+                            <!--                            <div class="tab-pane fade" id="product-rating" role="tabpanel" aria-labelledby="product-rating-tab"> Cras ut ipsum ornare, aliquam ipsum non, posuere elit. In hac habitasse platea dictumst. Aenean elementum leo augue, id fermentum risus efficitur vel. Nulla iaculis malesuada scelerisque. Praesent vel ipsum felis. Ut molestie, purus aliquam placerat sollicitudin, mi ligula euismod neque, non bibendum nibh neque et erat. Etiam dignissim aliquam ligula, aliquet feugiat nibh rhoncus ut. Aliquam efficitur lacinia lacinia. Morbi ac molestie lectus, vitae hendrerit nisl. Nullam metus odio, malesuada in vehicula at, consectetur nec justo. Quisque suscipit odio velit, at accumsan urna vestibulum a. Proin dictum, urna ut varius consectetur, sapien justo porta lectus, at mollis nisi orci et nulla. Donec pellentesque tortor vel nisl commodo ullamcorper. Donec varius massa at semper posuere. Integer finibus orci vitae vehicula placerat. </div>-->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- /.col-lg-9 -->
+
+    </div>
+    <!-- /.row -->
+
+</div>
+<!-- /.container -->
+
+<!-- Footer -->
+<footer class="py-5 bg-dark">
+    <div class="container">
+        <p class="m-0 text-center text-white">Copyright &copy;<a href="https://lesmillesrvices.com"><b>
+            lesmillesrvices</b></a>. 2019</p>
+    </div>
+    <!-- /.container -->
+</footer>
+
+<!-- Bootstrap core JavaScript -->
+<script src="/vendor/jquery/jquery.min.js"></script>
+<script src="/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+<script src="/express/vendor/js/main.js"></script>
+<script src="/express/vendor/js/anim.js"></script>
+<script src="/express/dist/js/mim.dv.me.js"></script>
+</body>
+</html>

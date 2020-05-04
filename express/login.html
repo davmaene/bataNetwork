@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="les milles services app">
+    <meta name="author" content="david maene">
+    <title>les milles services</title>
+    <link rel="shortcut icon" href="/staticsImgs/logoBand.jpg" type="image/x-icon">
+    <script src="/express/vendor/js/main.js"></script>
+    <script src="/express/vendor/js/auth-guard.redirect.js"></script>
+    <!-- Tell the browser to be responsive to screen width -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="/express/plugins/fontawesome-free/css/all.min.css">
+    <!-- Ionicons -->
+    <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
+    <!-- icheck bootstrap -->
+    <link rel="stylesheet" href="/express/plugins/icheck-bootstrap/icheck-bootstrap.min.css">
+    <!-- Theme style -->
+    <link rel="stylesheet" href="/express/dist/css/adminlte.min.css">
+    <!--    -->
+    <link href="/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <!-- font-awesome -->
+    <link rel="stylesheet" href="/css/font-awesome/css/font-awesome.css">
+    <!-- Custom styles for this template -->
+    <link href="/css/shop-homepage.css" rel="stylesheet">
+    <!--  -->
+    <link href="/css/css.style.css" rel="stylesheet">
+    <!-- Google Font: Source Sans Pro -->
+    <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
+</head>
+<body class="hold-transition">
+<!-- Navigation -->
+<nav class="navbar navbar-expand-lg bg-white shadow fixed-top navbar-dark">
+    <div class="container">
+        <a class="navbar-brand text-primary" href="/">
+            <img src="/staticsImgs/logoHeader.jpg" alt="logoHeader" srcset="" class="logo-h-w">
+        </a>
+        <button class="navbar-toggler bg-primary" type="button" data-toggle="collapse" data-target="#itemsDown" aria-controls="itemsDown" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="itemsDown">
+            <!-- section search -->
+            <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 mrt">
+                <div class="row">
+                    <input type="text" name="wrd-src" id="wrd-src" class="form-control brf-r wdth">
+                    <button type="button" id="btn-src" class="btn btn-default innerl">
+                        <span class="fa fa-search"></span>
+                    </button>
+                </div>
+            </div>
+            <!--      -->
+            <ul class="navbar-nav ml-auto txt-drk">
+                <li class="nav-item active-l" id="sec-profile">
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link txt-drk" href="/">Home
+                        <span class="sr-only">(current)</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link txt-drk" href="/products/lease">Location</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link txt-drk" href="/product/sale">Vente</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link txt-drk" href="/about/contact">Contact</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+<div class="container algn-center">
+    <div class="login-box hv">
+        <div class="login-logo">
+            <a href="#" class="nav-link"><b>Connexion</b></a>
+        </div>
+        <!-- /.login-logo -->
+        <div class="card">
+            <div class="card-body login-card-body">
+                <p class="login-box-msg">Connectez-vous</p>
+
+                <!--            <form action="../../index3.html" method="post">-->
+                <div class="input-group mb-3">
+                    <input type="email" class="form-control" placeholder="Adresse mail" id="cnnx-email" name="cnnx-email">
+                    <div class="input-group-append">
+                        <div class="input-group-text">
+                            <span class="fas fa-envelope"></span>
+                        </div>
+                    </div>
+                </div>
+                <div class="input-group mb-3">
+                    <input type="password" class="form-control" placeholder="Mot de passe" id="cnnx-pwd" name="cnnx-pwd">
+                    <div class="input-group-append">
+                        <div class="input-group-text">
+                            <span class="fas fa-eye fa-eye-slash hoverOn"  id="showup"></span>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-12 pb-2 d-none" id="dng">
+                        <small class="text-danger">
+                            <b>
+                                <span class="fa fa-warning"></span>&nbsp;
+                                Mot de passe ou nom d'utilisateur incorrecte
+                            </b>
+                        </small>
+                    </div>
+                    <div class="col-6">
+                        <div class="icheck-primary">
+                            <input type="checkbox" id="remember">
+                            <label for="remember" class="text-sm">
+                                Rester connecté
+                            </label>
+                        </div>
+                    </div>
+                    <!-- /.col -->
+                    <div class="col-6">
+                        <button type="submit" class="btn btn-primary btn-block" id="cnnx-btn">
+                            <span class="spinner-grow spinner-grow-sm d-none" id="animOnConnection"></span>
+                            Connexion
+                        </button>
+                    </div>
+                    <!-- /.col -->
+                </div>
+                <!--            </form>-->
+                <p class="mb-1">
+                    <a href="/forgot-password">Mot de passe oublié</a>
+                </p>
+                <p class="mb-0">
+                    <a href="/register" class="text-center">Ou créer un compte</a>
+                </p>
+            </div>
+            <!-- /.login-card-body -->
+        </div>
+    </div>
+    <!-- /.login-box -->
+</div>
+<!-- Footer -->
+<footer class="py-5 bg-dark">
+    <div class="container">
+        <p class="m-0 text-center text-white">Copyright &copy;<a href="https://lesmillesrvices.com"><b> lesmillesrvices</b></a>. 2019</p>
+    </div>
+    <!-- /.container -->
+</footer>
+<!-- jQuery -->
+<script src="/express/plugins/jquery/jquery.min.js"></script>
+<!-- Bootstrap 4 -->
+<script src="/express/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+<!-- AdminLTE App -->
+<script src="/express/dist/js/adminlte.min.js"></script>
+<!---->
+<script src="/express/vendor/js/login.js"></script>
+</body>
+</html>
