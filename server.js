@@ -148,7 +148,7 @@ app.get('/cars/all-categories', function(req, res){
 });
 app.get('/get-prd/:c/auth/:cb/state-account/true/step/:v', function (req, res) {
     res.sendFile(path.join(__dirname + '/express/product.html'))
-    console.log(req.params.c +' --------- '+ req.params.id);
+    // console.log(req.params.c +' --------- '+ req.params.id);
 });
 app.get('/cars/for-lease', function (req, res) {
     res.sendFile(path.join(__dirname + '/express/listing-lease.html'))

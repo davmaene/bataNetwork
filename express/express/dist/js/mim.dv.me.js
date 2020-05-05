@@ -19,6 +19,9 @@ window.onload = function () {
     const item = window.location.href;
     const sub = item.substring(item.lastIndexOf('/') + 1).toString();
     const emb = parseInt(sub); // params
+    const span = document.createElement('span');
+    span.className = 'spinner-grow spinner-grow-sm';
+    span.id = 'ann-grow';
     //
     // ----------------------------
     if (!isNaN(emb)){
@@ -58,6 +61,7 @@ window.onload = function () {
             imgThumb.appendChild(img4);
 
             const imgBox = [img1,img2,img3,img4,img5];
+            const onGetIt = document.getElementById('onGetIt');
             //     ----------------------------------
             const h3 = document.createElement('h4');
             h3.className = 'float-left';
@@ -66,12 +70,45 @@ window.onload = function () {
             switch (hldOn.categorie) {
                 case 13:
                     priceContent.innerHTML = '$' + hldOn.price;
+                    onGetIt.innerHTML = 'Louer';
+                    onGetIt.addEventListener('click', function () {
+                        onGetIt.appendChild(span);
+                        window.location.href = '/get-prd/'+(new Date().getTime())+'/auth/'+(new Date().getSeconds())+'/state-account/true/step/'+ hldOn.id+'?cat=13';
+                    });
                     break;
                 case 3:
                     priceContent.innerHTML = '$' + hldOn.price;
+                    onGetIt.innerHTML = 'Acheter';
+                    onGetIt.addEventListener('click', function () {
+                        onGetIt.appendChild(span);
+                        window.location.href = '/get-prd/'+(new Date().getTime())+'/auth/'+(new Date().getSeconds())+'/state-account/true/step/'+ hldOn.id+'?cat=3';
+                    });
                     break;
                 case 33:
-                    priceContent.innerHTML = '$' + hldOn.priceLease + '$' + hldOn.priceSale;
+                    onGetIt.innerHTML = 'Acheter ou Louer ?';
+                    const onGetItPre = document.getElementById('onGetIt-pre');
+                    const divbtn = document.createElement('div');
+                    divbtn.className = 'btn-group col-lg-12 pt-2';
+                    const btnLf = document.createElement('button');
+                    btnLf.className = 'btn btn-success';
+                    btnLf.innerHTML = 'Louer';
+                    divbtn.appendChild(btnLf);
+                    //
+                    const btnRght = document.createElement('button');
+                    btnRght.className = 'btn btn-primary';
+                    btnRght.innerHTML = 'Acheter';
+                    divbtn.appendChild(btnRght);
+                    // onGetIt.appendChild(divbtn);
+                    //
+                    priceContent.innerHTML = '' +
+                        '<select class="form-control">' +
+                        '<option value="lease">Location</option>'+
+                        '<option value="sale">Vente</option>'+
+                        '</select>' ;
+                    onGetIt.onclick = function (evt) {
+                        onGetIt.appendChild(span);
+                        onGetItPre.appendChild(divbtn);
+                    }
                     break;
             }
             clrContent.innerHTML = hldOn.color;
@@ -102,9 +139,6 @@ window.onload = function () {
             conSit.innerHTML = hldOn.siege;
         //    end appending
         //    when calling billing page
-            document.getElementById('onGetIt').addEventListener('click', function () {
-                window.location.href = '/get-prd/'+(new Date().getTime())+'/auth/'+(new Date().getSeconds())+'/state-account/true/step/'+ hldOn.id;
-            });
         }).catch(error => {
             console.log(error)
         })

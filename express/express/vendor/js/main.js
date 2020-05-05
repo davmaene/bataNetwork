@@ -28,7 +28,7 @@ class Session {
             const nck1 = on.nick1;
             const nck2 = on.nick2;
             const lk = document.createElement('a');
-                lk.href = '/profile';
+                lk.href = '#';
                 lk.className = 'nav-link txt-drk alr-img';
                 lk.id = 'init';
                 lk.innerHTML = nck1.substring(0, 1) + '' + nck2.substring(0, 1);
@@ -37,7 +37,17 @@ class Session {
             // document.getElementById('init').innerHTML = '';
             const div = document.createElement('div');
             div.className = 'col-lg-6'
-            // lk.addEventListener()
+            lk.addEventListener('click', () =>{
+               const divs = document.getElementById('dropdown-session');
+               if (divs.style.display === 'block'){
+                   divs.style.display = 'none';
+               }else{
+                   divs.style.display = 'block';
+               }
+            }, false)
         }
     }, false);
+document.getElementById('on-log-out').onclick = function () {
+    alert(1)
+}
 

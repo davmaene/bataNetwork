@@ -68,7 +68,7 @@
     display: block;
 }
 .dropdown-content::before{
-    content: 'Vous pouvez échanger votre véhicule avec un autre grâce à notre réseaux BATA. découvrez la diversité des véhicules à échanger ici'
+    content: 'Vous pouvez échanger votre véhicule avec un autre grâce à notre réseaux TU FANYE BATA. découvrez la diversité des véhicules à échanger ici'
 }
 .brf-r{
     border-radius: 20px;
@@ -78,6 +78,9 @@
     text-decoration: none;
     /*background-color: red;*/
     /*text-overline-color: red;*/
+}
+.d-nn{
+    display: none;
 }
 .txt-drk:hover{
     text-decoration: none;
