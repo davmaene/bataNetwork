@@ -36,6 +36,41 @@ const createTblprd = function(){
         'doors integer)';
     return bd.run(sql);
 };
+const createTblCommande = function(){
+    // whenLeaseSale specified if lease or sale of (33 cat) so 13 for lease and 3 far sale
+    const sql = 'CREATE TABLE IF NOT EXISTS _commandes_(id integer PRIMARY KEY AUTOINCREMENT NOT NULL,' +
+    'idClient integer,'+
+    'idProduct integer UNIQUE,'+
+    'categorie integer,'+
+    'whenLeaseSale integer,'+
+    'timer TIMESTAMP DEFAULT CURRENT_TIMESTAMP NOT NULL)';
+    return bd.run(sql);
+}
+const createTblYaBata = function(){
+    // col 18
+    const sql = 'CREATE TABLE IF NOT EXISTS _prdyabata(' +
+        'id integer PRIMARY KEY,' +
+        'fullname text,'+
+        'price text,'+
+        'imgprl text,'+
+        'img1 text,'+
+        'img2 text,'+
+        'img3 text,'+
+        'img4 text,'+
+        'state integer,'+
+        'categorie integer,' +
+        'description text,' +
+        'marque text,' +
+        // 'priceLease integer,' +
+        // 'priceSale integer,' +
+        'transmission text,' +
+        'carburant text,' +
+        'volant text,' +
+        'color text,' +
+        'siege integer,' +
+        'doors integer)';
+        return bd.run(sql);
+}
 // table --- Admin ------
 const createTableAdmin = function(){
     const sql = 'CREATE TABLE IF NOT EXISTS _admins(id integer PRIMARY KEY,' +
@@ -107,10 +142,16 @@ function onLoadingSiglePrd(id,cb) {
         cb(error, item)
     })
 }
+function onMakingCommand(cmmd,cb){
+    bd.run('INSERT INTO _commandes_(idClient,idProduct,categorie,whenLeaseSale) VALUES(?,?,?,?)',cmmd,(err) => {
+        cb(err)
+    })
+}
 // ---------------------------------------------------------//
 createTblprd(); // table prd
 createTableAdmin(); // admin table
 createTableClient(); // client table
+createTblCommande(); // commande table
 // --------------------------------------------------------- //
 // ----------------------- App ----------------------------- //
 const app = express();
@@ -150,6 +191,12 @@ app.get('/get-prd/:c/auth/:cb/state-account/true/step/:v', function (req, res) {
     res.sendFile(path.join(__dirname + '/express/product.html'))
     // console.log(req.params.c +' --------- '+ req.params.id);
 });
+app.get('/user/commandes', function(req, res){
+    res.sendFile(path.join(__dirname + '/express/profile.html'));
+});
+app.get('/user/profile', function(req, res){
+    res.sendfile(path.join( __dirname + '/express/profile.html'));
+})
 app.get('/cars/for-lease', function (req, res) {
     res.sendFile(path.join(__dirname + '/express/listing-lease.html'))
 });
@@ -158,6 +205,9 @@ app.get('/cars/for-sale', function (req, res) {
 });
 app.get('/about/contact', function (req, res) {
     res.sendFile(path.join(__dirname + '/express/about-us-contact.html'))
+})
+app.get('/cars/ku-fanya-bata', function(req, res){
+    res.sendFile(path.join(__dirname + '/express/yabata.html'))
 })
 // --------------  admin ---------------- //
 app.get('/dashboard/login', function(req, res) {
@@ -283,6 +333,19 @@ app.post('/load/all/:cat', function(req, res){
         }
     })
 })
+app.post('/action/commande', function(req, res){
+    onMakingCommand([req.body.idClient,req.body.idCar,req.body.qcat,req.body.qfrom],(error)=>{
+        if(error){
+            res.status(500);
+            res.end()
+            console.error(error)
+        }
+        if(!error){
+            res.status(200);
+            res.end()
+        }
+    })
+})
 // --------------------------------------------------------------------- //
 //  ------------------------- routes post when admin------------------------------- //
 
@@ -309,7 +372,7 @@ app.post('/load/listing-prd/:cat', function(req, res){
 })
 app.post('/action/add-prd', function(req, res){
     const form = new formidable.IncomingForm();
-    console.log(req.body)
+    // console.log(req.body)
     form.parse(req, function(error, fields,files){
         const imgprc = files.imageFile1;
         const img_a = files.imageFile2;
@@ -333,7 +396,7 @@ app.post('/action/add-prd', function(req, res){
         const cab = [imgprc, img_a, img_b, img_c, img_d]; // img's table
         // parsing array of img
         for(let img of cab){
-            const newPath = './express/dynamicsImgs/' + img.name;
+            const newPath = '/express/dynamicsImgs/' + img.name;
             const oldPath = img.path;
             // console.log(fields.cat)
             fs.rename(oldPath, newPath, function(error){
@@ -375,7 +438,7 @@ app.post('/action/add-prd', function(req, res){
                 onAdding(prdlease, (err) => {
                     if(err) throw err;
                     if(!err){
-                        console.log(13)
+                        // console.log(13)
                         res.statusMessage = JSON.stringify({me: 'dav.me'});
                         res.status(200);
                         res.end('<span>Le produit a été ajouté avec succes <a href="/dashboard/actions/addprd">Ajouter un autre produit</a></span><br/>'+
@@ -407,7 +470,7 @@ app.post('/action/add-prd', function(req, res){
                 fields.porte
             ];
                 onAdding(prdsale, (err) => {
-                    console.log(3)
+                    // console.log(3)
                     if(err) throw err;
                     if(!err){
                         res.statusMessage = JSON.stringify({me: 'dav.me'});
@@ -439,7 +502,7 @@ app.post('/action/add-prd', function(req, res){
                     fields.porte
                 ];
                 onAdding(prdsalelease, (err) => {
-                    console.log(33)
+                    // console.log(33)
                     if(err) throw err;
                     if(!err){
                         res.statusMessage = JSON.stringify({me: 'dav.me'});
@@ -484,7 +547,7 @@ app.post('/connect/admin', function(req, res){
                 res.status(404);
                 res.end();
             }else{
-                console.log(row)
+                // console.log(row)
                 res.statusMessage = JSON.stringify(row);
                 res.status(200);
                 res.end();

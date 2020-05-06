@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="les milles services app">
+  <meta name="author" content="david maene">
+
+  <title>les mille Services</title>
+  <link rel="shortcut icon" href="/staticsImgs/logoBand.jpg" type="image/x-icon">
+
+  <!-- Bootstrap core CSS -->
+  <link href="/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="/express/dist/css/adminlte.min.css">
+  <!-- font-awesome -->
+  <link rel="stylesheet" href="/css/font-awesome/css/font-awesome.css">
+  <!-- Custom styles for this template -->
+  <link href="/css/shop-homepage.css" rel="stylesheet">
+<!--  -->
+  <link href="/css/css.style.css" rel="stylesheet">
+</head>
+<body>
+  <!-- Navigation -->
+  <nav class="navbar navbar-expand-lg bg-white shadow fixed-top navbar-dark">
+    <div class="container">
+      <a class="navbar-brand text-primary" href="/">
+        <img src="/staticsImgs/logoHeader.jpg" alt="logoHeader" srcset="" class="logo-h-w">
+      </a>
+      <button class="navbar-toggler bg-primary" type="button" data-toggle="collapse" data-target="#itemsDown" aria-controls="itemsDown" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="itemsDown">
+        <!-- section search -->
+        <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 mrt">
+          <div class="row">
+            <input type="text" name="wrd-src" id="wrd-src" class="form-control brf-r wdth">
+            <button type="button" id="btn-src" class="btn btn-default innerl">
+              <span class="fa fa-search"></span>
+            </button>
+          </div>
+        </div>
+        <!--      -->
+        <ul class="navbar-nav ml-auto txt-drk">
+          <li class="nav-item" id="sec-profile">
+          </li>
+            <div class="col-lg-2 position-absolute top-right when-section txt-drk mt-5 float-left mr-5 pr-5 d-nn" id="dropdown-session">
+                <div class="list-group shadow mt-2">
+                    <a href="/user/profile" class="list-group-item txt-drk">
+                        <span class="fa fa-user"></span>
+                        &nbsp;Profile
+                    </a>
+                    <a href="/user/commandes" class="list-group-item txt-drk">
+                        <span class="fa fa-car"></span>
+                        &nbsp;Commandes
+                    </a>
+                    <!--          <a href="#" class="border-top" disabled="true"></a>-->
+                    <a href="#" class="list-group-item txt-drk" id="on-log-out">
+                        <span class="fa fa-sign-out"></span>
+                        &nbsp;Deconnexion
+                    </a>
+                </div>
+            </div>
+          <li class="nav-item active-l">
+            <a class="nav-link txt-drk" href="/">Home
+              <span class="sr-only">(current)</span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link txt-drk" href="/cars/for-lease">Location</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link txt-drk" href="/cars/for-sale">Vente</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link txt-drk" href="/about/contact">Contact</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+  <!-- Page Content -->
+  <div class="container my-4">
+    <div class="row">
+      <div class="col-lg-3 my-4">
+        <!-- <div class="col-md-3"> -->
+            <!-- Profile Image -->
+            <div class="card card-primary card-outline">
+              <div class="card-body box-profile">
+                <div class="text-center">
+                    <div class="profile-user-img img-fluid img-circle">
+                        <span class="spinner-grow spinner-grow-lg"></span>
+                    </div>  
+                </div>
+
+                <h3 class="profile-username text-center" id="for-fullname">
+                    <span class="spinner-grow spinner-grow-sm"></span>
+                </h3>
+
+                <p class="text-muted text-center" id="for-phonenumber">
+                    <span class="spinner-grow spinner-grow-sm"></span>
+                </p>
+
+                <ul class="list-group list-group-unbordered mb-3">
+                  <li class="list-group-item">
+                    <b>Locations</b> 
+                    <a class="float-right" id="for-vente">
+                        <span class="spinner-grow spinner-grow-sm"></span>
+                    </a>
+                  </li>
+                  <li class="list-group-item">
+                    <b>Vente</b> 
+                    <a class="float-right" id="for-location">
+                        <span class="spinner-grow spinner-grow-sm"></span>
+                    </a>
+                  </li>
+                  <li class="list-group-item">
+                    <b>Réseau BATA</b> <a class="float-right" id="for-bata">
+                        <span class="spinner-grow spinner-grow-sm"></span>
+                    </a>
+                  </li>
+                </ul>
+
+                <!-- <a href="#" class="btn btn-primary btn-block"><b>Follow</b></a> -->
+              </div>
+              <!-- /.card-body -->
+            </div>
+            <!-- /.card -->
+            <!-- /.card -->
+          </div>
+      <!-- </div> -->
+      <!-- /.col-lg-3 -->
+
+      <div class="col-lg-9">
+        <div class="row pt-3 my-2" id="ror-for-operations">
+            <div class="card w-100">
+                <div class="card-header"><strong>Mes opérations</strong></div>
+                <div class="card-body" id="operating-opera">
+                    <span class="spinner-grow spinner-grow-sm"></span><br>
+                    <span class="spinner-grow spinner-grow-sm"></span><br>
+                    <span class="spinner-grow spinner-grow-sm"></span><br>
+                    <span class="spinner-grow spinner-grow-sm"></span>
+                </div>
+                <div class="card-footer"></div>
+            </div>
+        </div>
+        <!-- /.row -->
+      </div>
+      <!-- /.col-lg-9 -->
+
+    </div>
+    <!-- /.row -->
+
+  </div>
+  <!-- /.container -->
+
+  <!-- Footer -->
+  <footer class="py-5 bg-dark">
+    <div class="container">
+      <p class="m-0 text-center text-white">Copyright &copy;<a href="https://lesmillesrvices.com"><b> lesmillesrvices</b></a>. 2019</p>
+    </div>
+    <!-- /.container -->
+  </footer>
+
+  <!-- Bootstrap core JavaScript -->
+  <script src="/vendor/jquery/jquery.min.js"></script>
+  <script src="/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="/express/vendor/js/main.js"></script>
+  <!-- <script src="/express/vendor/js/listingT.js"></script> -->
+</body>
+</html>

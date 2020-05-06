@@ -17,6 +17,7 @@ window.onload = function () {
     const conColor = document.getElementById('con-color');
     // -------------------------------------------------
     const item = window.location.href;
+    // console.log(getParameterByName(item));
     const sub = item.substring(item.lastIndexOf('/') + 1).toString();
     const emb = parseInt(sub); // params
     const span = document.createElement('span');
@@ -100,6 +101,14 @@ window.onload = function () {
                     divbtn.appendChild(btnRght);
                     // onGetIt.appendChild(divbtn);
                     //
+                    btnLf.onclick = function(evt){
+                        evt.target.appendChild(span);
+                        window.location.href = '/get-prd/'+(new Date().getTime())+'/auth/'+(new Date().getSeconds())+'/state-account/true/step/'+ hldOn.id+'?cat=13&qfrom=33'; 
+                    }
+                    btnRght.onclick = function(evt){
+                        evt.target.appendChild(span);
+                        window.location.href = '/get-prd/'+(new Date().getTime())+'/auth/'+(new Date().getSeconds())+'/state-account/true/step/'+ hldOn.id+'?cat=3&qfrom=33'; 
+                    }
                     priceContent.innerHTML = '' +
                         '<select class="form-control">' +
                         '<option value="lease">Location</option>'+
@@ -108,6 +117,7 @@ window.onload = function () {
                     onGetIt.onclick = function (evt) {
                         onGetIt.appendChild(span);
                         onGetItPre.appendChild(divbtn);
+
                     }
                     break;
             }

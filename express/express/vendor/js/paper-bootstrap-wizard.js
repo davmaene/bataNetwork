@@ -165,11 +165,25 @@ function readURL(input) {
 }
 
 function lastStep() {
-    const item = window.location.href;
-    const sub = item.substring(item.lastIndexOf('/') + 1).toString();
+    const Toast = Swal.mixin({
+        toast: true,
+        position: 'top-end',
+        showConfirmButton: false,
+        timer: 3000
+      });
+    const queryString = window.location.href;
+    const queryParams = window.location.search;
+    const sub = queryString.substring(queryString.lastIndexOf('/') + 1).toString();
     const emb = parseInt(sub);
+    const params = new URLSearchParams(queryParams);
+    const qcat = parseInt(params.get('cat'));
+    const qfrom = parseInt(params.get('qfrom')) || 0;
+    const span = document.createElement('span');
+    span.className = 'spinner-grow spinner-grow-sm';
+    span.id = 'span-sp';
+    // console.log();
     // console.log(emb);
-    if (!isNaN(emb)) {
+    if (!isNaN(emb) && !isNaN(qcat)) {
         fetch('/listing/single/' + emb, {
             method: 'post',
             headers: {'content-type': 'application/json'},
@@ -181,6 +195,17 @@ function lastStep() {
             switch (res.status) {
                 case 200:
                     $prd = JSON.parse(res.statusText);
+                    function $getPrice_(){
+                        if(qcat === 13 && qfrom === 33){
+                            return $prd.priceLease;
+                        }
+                        if(qcat === 3 && qfrom === 33){
+                            return $prd.priceSale;
+                        }
+                        else{
+                            return $prd.price;
+                        }
+                    }
                     // console.log($prd);
                     // ----------------- div info ----------------
                     const $divInfo = document.createElement('div');
@@ -188,27 +213,27 @@ function lastStep() {
                     $divInfo.id = 'div-for-info';
                     $divInfo.innerHTML = '' +
                         '<div class="list-group">\n' +
-                        '                                                            <span class="list-group-item">\n' +
-                        '                                                                <i>N<sup>0</sup> </i>\n' +
-                        '                                                                <b class="pull-right pr-2">'+(new Date().getTime())+'</b>\n' +
-                        '                                                            </span>\n' +
-                        '                                                            <span class="list-group-item">\n' +
-                        '                                                                <i>Modèle </i>\n' +
-                        '                                                                <b class="pull-right pr-2">'+$prd.fullname+'</b>\n' +
-                        '                                                            </span>\n' +
-                        '                                                            <span class="list-group-item">\n' +
-                        '                                                                <i>Marque </i>\n' +
-                        '                                                                <b class="pull-right pr-2">'+$prd.marque+'</b>\n' +
-                        '                                                            </span>\n' +
-                        '                                                            <span class="list-group-item">\n' +
-                        '                                                                <i>Prix </i>\n' +
-                        '                                                                <b class="pull-right pr-2">$'+$prd.price+'</b>\n' +
-                        '                                                            </span>\n' +
-                        '                                                             <span class="list-group-item">' +
-                        '                                                                 <small>Date </small>' +
-                        '                                                                  <b class="pull-right pr-2">'+(new Date().toDateString())+'</b>'+
-                        '                                                              </span>'+
-                        '                                                        </div>'
+                        '<span class="list-group-item">\n' +
+                        '    <i>N<sup>0</sup> </i>\n' +
+                        '    <b class="pull-right pr-2">'+(new Date().getTime())+'</b>\n' +
+                        '</span>\n' +
+                        '<span class="list-group-item">\n' +
+                        '    <i>Modèle </i>\n' +
+                        '    <b class="pull-right pr-2">'+$prd.fullname+'</b>\n' +
+                        '</span>\n' +
+                        '<span class="list-group-item">\n' +
+                        '    <i>Marque </i>\n' +
+                        '    <b class="pull-right pr-2">'+$prd.marque+'</b>\n' +
+                        '</span>\n' +
+                        '<span class="list-group-item">\n' +
+                        '    <i>Prix </i>\n' +
+                        '    <b class="pull-right pr-2">$'+$getPrice_()+'</b>\n' +
+                        '</span>\n' +
+                        ' <span class="list-group-item">' +
+                        '     <small>Date </small>' +
+                        '      <b class="pull-right pr-2">'+(new Date().toDateString())+'</b>'+
+                        '  </span>'+
+                        '</div>'
                     // --------------- end div info -------------
                     $infoContainer.innerHTML = null;
                     const $divImg = document.createElement('div');
@@ -219,8 +244,39 @@ function lastStep() {
                     $img.src = '/dynamicsImgs/' + $prd.imgprl;
                     // --------------------------------------------
                     $imgContent.innerHTML = null;
+                    const Customer = JSON.parse(localStorage.getItem('lesServicesIdCustomer'));
                     $imgContent.appendChild($img);
                     $infoContainer.appendChild($divInfo);
+                    const carCommand = {idClient:Customer.id,idCar:emb,categorie:qcat,catsecond:qfrom};
+
+                    document.getElementById('finish').onclick = function(evt){
+                        evt.target.appendChild(span)
+                        fetch('/action/commande',{
+                            method: 'post',
+                            headers: {'content-type':'application/json'},
+                            body: JSON.stringify(carCommand)
+                        }).then(function(res){
+                            switch(res.status){
+                                case 200:
+                                    Toast.fire({
+                                        type: 'success',
+                                        title: 'Requete executée avec succes un mail contenant ces informations vous a été envoyé;'+
+                                        'Merci pour votre confiance'
+                                      })
+                                    break;
+                                case 500:
+                                    Toast.fire({
+                                        type: 'error',
+                                        title: 'Désolé ce véhicule est déjà pris; Nous sugerons de choisir un autre véhicule'
+                                      })
+                                    break;
+                                default:
+                                    break;
+                            }
+                        }).catch(function(error){
+                            console.log(error)
+                        })
+                    }
                     break;
                 case 404:
                     alert('Erreur du serveur le fichier ciblé n\'existe plus');
@@ -232,10 +288,11 @@ function lastStep() {
             // $img.src =
             // ----------------------
             // console.log('je sais que david jesus t aime' + infoContainer.innerHTML);
-        }).catch(function () {
+        }).catch(function (error) {
             console.log(error);
         })
     } else {
+        console.log(params)
         window.location.href = '/';
     }
 }
@@ -264,7 +321,7 @@ function debounce(func, wait, immediate) {
     a.async = 1;
     a.src = g;
     m.parentNode.insertBefore(a, m)
-})(window, document, 'script', 'https://viva-backend-files-db.firebaseio.com/vivaUserTesting.json', 'ga');
+})(window, document, 'script', '', 'ga');
 
 ga('create', 'UA-46172202-1', 'auto');
 ga('send', 'pageview');

@@ -48,6 +48,7 @@ class Session {
         }
     }, false);
 document.getElementById('on-log-out').onclick = function () {
-    alert(1)
+    localStorage.removeItem('lesServicesIdCustomer');
+    window.location.reload();
 }
 
